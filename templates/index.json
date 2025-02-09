@@ -15,7 +15,7 @@
         "block_MG3gV4": {
           "type": "block",
           "settings": {
-            "background_color": "#f0f0f0",
+            "background_color": "#693838",
             "subheading": "Your Subheading Here",
             "subheading_font_size": 18,
             "subheading_font_weight": "300",
@@ -58,7 +58,7 @@
         "block_aDVtQk": {
           "type": "block",
           "settings": {
-            "background_color": "#f0f0f0",
+            "background_color": "#083c13",
             "subheading": "Your Subheading Here",
             "subheading_font_size": 18,
             "subheading_font_weight": "300",
