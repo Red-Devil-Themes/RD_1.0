@@ -1,0 +1,29 @@
+Kenmerken en Functionaliteiten
+1. Flexibele Layouts & Structuur
+Dynamische grid-indeling: Mogelijkheid om content in verschillende kolomstructuren weer te geven (1, 2, 3, 4 of zelfs een asymmetrische layout).
+Full-width en boxed-modus: Kies of de content zich uitstrekt over de volledige breedte of binnen een container wordt geplaatst.
+Sticky-sectie opties: Mogelijkheid om bepaalde content vast te zetten terwijl andere delen scrollen.
+2. Geavanceerde Content Blokken
+Tekstblokken: Koppen (H1 - H6), alinea's, bullet points, en geavanceerde typografie-opties.
+Afbeeldingen en video’s: Ondersteuning voor WebP, SVG, MP4, YouTube/Vimeo en zelfs Lottie-animaties.
+Iconen en badges: Kies uit een ingebouwde bibliotheek of upload aangepaste iconen.
+Call-to-Actions (CTA): Flexibele knoppen met meerdere stylingopties en dynamische links.
+Tabbladen en accordeons: Ideaal voor productinformatie of FAQ-secties.
+Reviews & Testimonials: Ondersteuning voor zowel statische als dynamisch geladen klantbeoordelingen.
+3. Design & Stijl Opties
+Volledige controle over kleuren en lettertypes: Koppel met de globale thema-instellingen of stel per sectie eigen stijlen in.
+Achtergrondopties: Kies uit egale kleuren, verloopkleuren, afbeeldingen of zelfs video's als achtergrond.
+Animaties & Hover-effecten: Subtiele fade-ins, parallax-effecten en dynamische overgangseffecten voor een premium uitstraling.
+4. Dynamische Content & Integraties
+Dynamische product- en collectieblokken: Mogelijkheid om handmatig producten te selecteren of automatisch een collectie uit Shopify te laden.
+Dynamische teksten & vertalingen: Ondersteuning voor meertaligheid en dynamische content (bijv. producttitels, prijzen, etc.).
+Countdown Timers & Promotiebanners: Perfect voor aanbiedingen of pre-orders.
+Koppeling met externe apps & API’s: Mogelijkheid om externe databronnen of JSON-content in te laden.
+5. Responsiviteit & Mobiele Optimalisatie
+Volledige mobiele responsiviteit: Alle blokken en content passen zich automatisch aan voor verschillende schermformaten.
+Verschillende weergave-opties per apparaat: Content kan apart worden ingesteld voor desktop, tablet en mobiel.
+Lazy-loading voor afbeeldingen en video’s: Optimalisatie van laadtijden voor betere prestaties.
+6. SEO & Toegankelijkheid
+SEO-geoptimaliseerde koppen en metagegevens: Biedt ingebouwde velden voor ALT-teksten en gestructureerde gegevens (Schema.org).
+Snelle laadtijden en geoptimaliseerde code: Minimaal impact op de Core Web Vitals.
+Toegankelijkheid (A11Y): Kleurencontrasten, focus-states en toetsenbordnavigatie worden automatisch ondersteund.
