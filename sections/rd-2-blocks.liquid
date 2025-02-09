@@ -1,0 +1,194 @@
+
+{{ 'section-rd-2-blocks.css' | asset_url | stylesheet_tag }}
+
+<div class="rd-2-blocks section-{{ section.id }}-padding color-{{ section.settings.color_scheme }}">
+  <div class="page-width">
+    <div class="rd-2-blocks__wrapper">
+      {%- for block in section.blocks -%}
+        <div class="rd-2-blocks__block" {{ block.shopify_attributes }}>
+          <div class="rd-2-blocks__content" style="background-color: {{ block.settings.background_color }}">
+            {%- if block.settings.background_image != blank -%}
+              <img
+                srcset="{%- if block.settings.background_image.width >= 165 -%}{{ block.settings.background_image | image_url: width: 165 }} 165w,{%- endif -%}
+                  {%- if block.settings.background_image.width >= 360 -%}{{ block.settings.background_image | image_url: width: 360 }} 360w,{%- endif -%}
+                  {%- if block.settings.background_image.width >= 535 -%}{{ block.settings.background_image | image_url: width: 535 }} 535w,{%- endif -%}
+                  {%- if block.settings.background_image.width >= 750 -%}{{ block.settings.background_image | image_url: width: 750 }} 750w,{%- endif -%}
+                  {{ block.settings.background_image | image_url }} {{ block.settings.background_image.width }}w"
+                src="{{ block.settings.background_image | image_url: width: 750 }}"
+                sizes="(min-width: 990px) 50vw, 100vw"
+                alt="{{ block.settings.background_image.alt | escape }}"
+                class="rd-2-blocks__background-image"
+                loading="lazy"
+                width="{{ block.settings.background_image.width }}"
+                height="{{ block.settings.background_image.height }}"
+              >
+            {%- endif -%}
+            <div class="rd-2-blocks__text-content">
+              {%- if block.settings.heading != blank -%}
+                <h2 class="rd-2-blocks__heading {{ block.settings.heading_size }}">{{ block.settings.heading }}</h2>
+              {%- endif -%}
+              {%- if block.settings.subheading != blank -%}
+                <p class="rd-2-blocks__subheading">{{ block.settings.subheading }}</p>
+              {%- endif -%}
+              {%- if block.settings.text != blank -%}
+                <div class="rd-2-blocks__text">{{ block.settings.text }}</div>
+              {%- endif -%}
+              {%- if block.settings.button_label != blank -%}
+                <a href="{{ block.settings.button_link }}" class="button{% if block.settings.button_style_secondary %} button--secondary{% else %} button--primary{% endif %}">
+                  {{ block.settings.button_label | escape }}
+                </a>
+              {%- endif -%}
+            </div>
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "RD - 2 Blocks",
+  "max_blocks": 2,
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "select",
+      "id": "spacing",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "small",
+          "label": "Small"
+        },
+        {
+          "value": "medium",
+          "label": "Medium"
+        },
+        {
+          "value": "large",
+          "label": "Large"
+        }
+      ],
+      "default": "medium",
+      "label": "Block spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "block",
+      "name": "Block",
+      "limit": 2,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "background_image",
+          "label": "Background image"
+        },
+        {
+          "type": "color",
+          "id": "background_color",
+          "label": "Background color",
+          "default": "#ffffff"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "default": "Heading",
+          "label": "Heading"
+        },
+        {
+          "type": "select",
+          "id": "heading_size",
+          "options": [
+            {
+              "value": "h2",
+              "label": "Medium"
+            },
+            {
+              "value": "h1",
+              "label": "Large"
+            },
+            {
+              "value": "h0",
+              "label": "Extra large"
+            }
+          ],
+          "default": "h1",
+          "label": "Heading size"
+        },
+        {
+          "type": "text",
+          "id": "subheading",
+          "default": "Subheading",
+          "label": "Subheading"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "default": "<p>Pair text with an image to describe your products, services, or brand message.</p>",
+          "label": "Text"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "default": "Button label",
+          "label": "Button label"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button link"
+        },
+        {
+          "type": "checkbox",
+          "id": "button_style_secondary",
+          "default": false,
+          "label": "Use secondary button style"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "RD - 2 Blocks",
+      "blocks": [
+        {
+          "type": "block"
+        },
+        {
+          "type": "block"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
