@@ -1,0 +1,256 @@
+
+{% schema %}
+{
+  "name": "Flexible Content",
+  "settings": [
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Layout Type",
+      "options": [
+        {
+          "value": "1_column",
+          "label": "1 Column"
+        },
+        {
+          "value": "2_columns",
+          "label": "2 Columns"
+        },
+        {
+          "value": "3_columns",
+          "label": "3 Columns"
+        },
+        {
+          "value": "4_columns",
+          "label": "4 Columns"
+        },
+        {
+          "value": "asymmetric",
+          "label": "Asymmetric"
+        }
+      ],
+      "default": "1_column"
+    },
+    {
+      "type": "select",
+      "id": "width",
+      "label": "Content Width",
+      "options": [
+        {
+          "value": "full",
+          "label": "Full Width"
+        },
+        {
+          "value": "boxed",
+          "label": "Boxed"
+        }
+      ],
+      "default": "boxed"
+    },
+    {
+      "type": "checkbox",
+      "id": "sticky",
+      "label": "Enable Sticky Position",
+      "default": false
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color Scheme"
+    },
+    {
+      "type": "select",
+      "id": "background_type",
+      "label": "Background Type",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "color",
+          "label": "Color"
+        },
+        {
+          "value": "gradient",
+          "label": "Gradient"
+        },
+        {
+          "value": "image",
+          "label": "Image"
+        },
+        {
+          "value": "video",
+          "label": "Video"
+        }
+      ],
+      "default": "none"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "Text Block",
+      "settings": [
+        {
+          "type": "select",
+          "id": "heading_tag",
+          "label": "Heading Tag",
+          "options": [
+            {"value": "h1", "label": "H1"},
+            {"value": "h2", "label": "H2"},
+            {"value": "h3", "label": "H3"},
+            {"value": "h4", "label": "H4"},
+            {"value": "h5", "label": "H5"},
+            {"value": "h6", "label": "H6"}
+          ],
+          "default": "h2"
+        },
+        {
+          "type": "richtext",
+          "id": "text_content",
+          "label": "Text Content"
+        }
+      ]
+    },
+    {
+      "type": "media",
+      "name": "Media",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "video_url",
+          "id": "video",
+          "label": "Video",
+          "accept": ["youtube", "vimeo"]
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Link"
+        }
+      ]
+    },
+    {
+      "type": "cta",
+      "name": "Call to Action",
+      "settings": [
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button Text",
+          "default": "Click Here"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button Link"
+        },
+        {
+          "type": "select",
+          "id": "button_style",
+          "label": "Button Style",
+          "options": [
+            {
+              "value": "primary",
+              "label": "Primary"
+            },
+            {
+              "value": "secondary",
+              "label": "Secondary"
+            }
+          ],
+          "default": "primary"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Flexible Content"
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+.flexible-section {
+  margin: 0 auto;
+  width: 100%;
+}
+
+.flexible-section--boxed {
+  max-width: var(--page-width);
+  padding: 0 1.5rem;
+}
+
+.flexible-section--sticky {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.flexible-grid {
+  display: grid;
+  gap: 2rem;
+}
+
+.flexible-grid--1-column { grid-template-columns: 1fr; }
+.flexible-grid--2-columns { grid-template-columns: repeat(2, 1fr); }
+.flexible-grid--3-columns { grid-template-columns: repeat(3, 1fr); }
+.flexible-grid--4-columns { grid-template-columns: repeat(4, 1fr); }
+.flexible-grid--asymmetric { grid-template-columns: 2fr 1fr; }
+
+@media screen and (max-width: 749px) {
+  .flexible-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.flexible-block {
+  opacity: 0;
+  animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+</style>
+
+<div class="flexible-section {% if section.settings.width == 'boxed' %}flexible-section--boxed{% endif %} {% if section.settings.sticky %}flexible-section--sticky{% endif %}" 
+  style="{% if section.settings.background_type != 'none' %}background: var(--{{ section.settings.color_scheme }});{% endif %}">
+  <div class="flexible-grid flexible-grid--{{ section.settings.layout }}">
+    {% for block in section.blocks %}
+      {% case block.type %}
+        {% when 'text' %}
+          <div class="flexible-block" {{ block.shopify_attributes }}>
+            <{{ block.settings.heading_tag }}>{{ block.settings.text_content }}</{{ block.settings.heading_tag }}>
+          </div>
+        {% when 'media' %}
+          <div class="flexible-block" {{ block.shopify_attributes }}>
+            {% if block.settings.image %}
+              <img src="{{ block.settings.image | img_url: 'master' }}" 
+                   loading="lazy" 
+                   alt="{{ block.settings.image.alt | escape }}">
+            {% endif %}
+            {% if block.settings.video %}
+              {{ block.settings.video | video_tag }}
+            {% endif %}
+          </div>
+        {% when 'cta' %}
+          <div class="flexible-block" {{ block.shopify_attributes }}>
+            <a href="{{ block.settings.button_link }}" 
+               class="button button--{{ block.settings.button_style }}">
+              {{ block.settings.button_text }}
+            </a>
+          </div>
+      {% endcase %}
+    {% endfor %}
+  </div>
+</div>
