@@ -50,9 +50,51 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "rd_2_blocks_kKMBde": {
+      "type": "rd-2-blocks",
+      "blocks": {
+        "block_wJcD3A": {
+          "type": "block",
+          "settings": {
+            "background_color": "#ffffff",
+            "heading": "Heading",
+            "heading_size": "h1",
+            "subheading": "Subheading",
+            "text": "<p>Pair text with an image to describe your products, services, or brand message.</p>",
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false
+          }
+        },
+        "block_7PqFT3": {
+          "type": "block",
+          "settings": {
+            "background_color": "#ffffff",
+            "heading": "Heading",
+            "heading_size": "h1",
+            "subheading": "Subheading",
+            "text": "<p>Pair text with an image to describe your products, services, or brand message.</p>",
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "block_wJcD3A",
+        "block_7PqFT3"
+      ],
+      "settings": {
+        "color_scheme": "",
+        "spacing": "medium",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
-    "rd_2_blocks_aHQPpa"
+    "rd_2_blocks_aHQPpa",
+    "rd_2_blocks_kKMBde"
   ]
 }
