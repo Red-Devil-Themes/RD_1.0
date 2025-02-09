@@ -7,13 +7,28 @@
 .rd-2-blocks__wrapper {
   display: flex;
   flex-direction: column;
+  gap: var(--spacing, 2rem);
+}
+
+.rd-2-blocks__wrapper[data-spacing="none"] {
+  gap: 0;
+}
+
+.rd-2-blocks__wrapper[data-spacing="small"] {
+  gap: 1rem;
+}
+
+.rd-2-blocks__wrapper[data-spacing="medium"] {
   gap: 2rem;
+}
+
+.rd-2-blocks__wrapper[data-spacing="large"] {
+  gap: 3rem;
 }
 
 @media screen and (min-width: 990px) {
   .rd-2-blocks__wrapper {
     flex-direction: row;
-    gap: 3rem;
   }
 }
 
@@ -26,11 +41,23 @@
   position: relative;
   border-radius: var(--border-radius);
   overflow: hidden;
-  aspect-ratio: 1/1;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 2rem;
+}
+
+.rd-2-blocks[data-height="small"] .rd-2-blocks__content {
+  min-height: 300px;
+}
+
+.rd-2-blocks[data-height="medium"] .rd-2-blocks__content {
+  min-height: 400px;
+}
+
+.rd-2-blocks[data-height="large"] .rd-2-blocks__content {
+  min-height: 500px;
 }
 
 .rd-2-blocks__background-image {
@@ -43,15 +70,37 @@
   z-index: 1;
 }
 
+.rd-2-blocks__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, var(--overlay-opacity, 0.5));
+  z-index: 2;
+}
+
 .rd-2-blocks__text-content {
   position: relative;
-  z-index: 2;
-  text-align: center;
+  z-index: 3;
+  text-align: var(--content-alignment, center);
   max-width: 90%;
 }
 
 .rd-2-blocks__heading {
   margin: 0 0 1rem;
+}
+
+.rd-2-blocks__heading.h0 {
+  font-size: 3rem;
+}
+
+.rd-2-blocks__heading.h1 {
+  font-size: 2.5rem;
+}
+
+.rd-2-blocks__heading.h2 {
+  font-size: 2rem;
 }
 
 .rd-2-blocks__subheading {
@@ -63,8 +112,40 @@
   margin: 0 0 2rem;
 }
 
+.rd-2-blocks__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--border-radius);
+  transition: all 0.3s ease;
+}
+
+.rd-2-blocks__button.small {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+}
+
+.rd-2-blocks__button.large {
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+}
+
+.rd-2-blocks__button:hover {
+  opacity: 0.9;
+}
+
 @media screen and (max-width: 989px) {
-  .rd-2-blocks__content {
-    aspect-ratio: 3/2;
+  .rd-2-blocks__heading.h0 {
+    font-size: 2.5rem;
+  }
+
+  .rd-2-blocks__heading.h1 {
+    font-size: 2rem;
+  }
+
+  .rd-2-blocks__heading.h2 {
+    font-size: 1.75rem;
   }
 }

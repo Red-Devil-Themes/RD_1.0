@@ -82,6 +82,26 @@
       "label": "Block spacing"
     },
     {
+      "type": "select",
+      "id": "content_alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center",
+      "label": "Content alignment"
+    },
+    {
       "type": "range",
       "id": "padding_top",
       "min": 0,
@@ -100,6 +120,42 @@
       "unit": "px",
       "label": "Padding bottom",
       "default": 36
+    },
+    {
+      "type": "select",
+      "id": "section_height",
+      "options": [
+        {
+          "value": "small",
+          "label": "Small"
+        },
+        {
+          "value": "medium",
+          "label": "Medium"
+        },
+        {
+          "value": "large",
+          "label": "Large"
+        }
+      ],
+      "default": "medium",
+      "label": "Section height"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_background_overlay",
+      "default": false,
+      "label": "Show background overlay"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "label": "Overlay opacity",
+      "default": 50
     }
   ],
   "blocks": [
@@ -109,15 +165,53 @@
       "limit": 2,
       "settings": [
         {
+          "type": "header",
+          "content": "Background Settings"
+        },
+        {
           "type": "image_picker",
           "id": "background_image",
           "label": "Background image"
+        },
+        {
+          "type": "select",
+          "id": "background_position",
+          "options": [
+            {
+              "value": "center center",
+              "label": "Center"
+            },
+            {
+              "value": "top center",
+              "label": "Top"
+            },
+            {
+              "value": "bottom center",
+              "label": "Bottom"
+            }
+          ],
+          "default": "center center",
+          "label": "Background position"
         },
         {
           "type": "color",
           "id": "background_color",
           "label": "Background color",
           "default": "#ffffff"
+        },
+        {
+          "type": "range",
+          "id": "background_opacity",
+          "min": 0,
+          "max": 100,
+          "step": 5,
+          "unit": "%",
+          "label": "Background opacity",
+          "default": 100
+        },
+        {
+          "type": "header",
+          "content": "Content Settings"
         },
         {
           "type": "text",
@@ -146,16 +240,38 @@
           "label": "Heading size"
         },
         {
+          "type": "color",
+          "id": "heading_color",
+          "label": "Heading color",
+          "default": "#000000"
+        },
+        {
           "type": "text",
           "id": "subheading",
           "default": "Subheading",
           "label": "Subheading"
         },
         {
+          "type": "color",
+          "id": "subheading_color",
+          "label": "Subheading color",
+          "default": "#000000"
+        },
+        {
           "type": "richtext",
           "id": "text",
           "default": "<p>Pair text with an image to describe your products, services, or brand message.</p>",
           "label": "Text"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text color",
+          "default": "#000000"
+        },
+        {
+          "type": "header",
+          "content": "Button Settings"
         },
         {
           "type": "text",
@@ -173,6 +289,38 @@
           "id": "button_style_secondary",
           "default": false,
           "label": "Use secondary button style"
+        },
+        {
+          "type": "color",
+          "id": "button_color",
+          "label": "Button color",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "button_text_color",
+          "label": "Button text color",
+          "default": "#ffffff"
+        },
+        {
+          "type": "select",
+          "id": "button_size",
+          "options": [
+            {
+              "value": "small",
+              "label": "Small"
+            },
+            {
+              "value": "medium",
+              "label": "Medium"
+            },
+            {
+              "value": "large",
+              "label": "Large"
+            }
+          ],
+          "default": "medium",
+          "label": "Button size"
         }
       ]
     }
