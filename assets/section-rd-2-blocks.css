@@ -45,12 +45,38 @@
   order: 2;
 }
 
-#links {
+[id^="links_"] {
   margin-right: calc(var(--spacing, 2rem) / 2);
+  flex: 1;
+  min-height: 100%;
+  order: 1;
 }
 
-#rechts {
+[id^="rechts_"] {
   margin-left: calc(var(--spacing, 2rem) / 2);
+  flex: 1;
+  min-height: 100%;
+  order: 2;
+}
+
+[id^="links_"] .rd-2-blocks__content,
+[id^="rechts_"] .rd-2-blocks__content {
+  position: relative;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+[id^="links_"] .rd-2-blocks__text-content,
+[id^="rechts_"] .rd-2-blocks__text-content {
+  position: relative;
+  z-index: 3;
+  text-align: var(--content-alignment, center);
+  max-width: 90%;
 }
 
 .rd-2-blocks__content {
