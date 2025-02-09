@@ -9,10 +9,10 @@
  */
 {
   "sections": {
-    "rd_2_blocks_9PPmf7": {
+    "rd_2_blocks_aHQPpa": {
       "type": "rd-2-blocks",
       "blocks": {
-        "block_kURPjb": {
+        "block_KcUph7": {
           "type": "block",
           "settings": {
             "background_color": "#ffffff",
@@ -25,7 +25,7 @@
             "button_style_secondary": false
           }
         },
-        "block_WtL4HN": {
+        "block_iraFDP": {
           "type": "block",
           "settings": {
             "background_color": "#ffffff",
@@ -40,50 +40,10 @@
         }
       },
       "block_order": [
-        "block_kURPjb",
-        "block_WtL4HN"
+        "block_KcUph7",
+        "block_iraFDP"
       ],
-      "settings": {
-        "color_scheme": "",
-        "spacing": "medium",
-        "padding_top": 0,
-        "padding_bottom": 0
-      }
-    },
-    "rd_2_blocks_i4qzFF": {
-      "type": "rd-2-blocks",
-      "blocks": {
-        "block_c89M8b": {
-          "type": "block",
-          "settings": {
-            "background_color": "#ffffff",
-            "heading": "Heading",
-            "heading_size": "h1",
-            "subheading": "Subheading",
-            "text": "<p>Pair text with an image to describe your products, services, or brand message.</p>",
-            "button_label": "Button label",
-            "button_link": "",
-            "button_style_secondary": false
-          }
-        },
-        "block_yhAQYj": {
-          "type": "block",
-          "settings": {
-            "background_color": "#ffffff",
-            "heading": "Heading",
-            "heading_size": "h1",
-            "subheading": "Subheading",
-            "text": "<p>Pair text with an image to describe your products, services, or brand message.</p>",
-            "button_label": "Button label",
-            "button_link": "",
-            "button_style_secondary": false
-          }
-        }
-      },
-      "block_order": [
-        "block_c89M8b",
-        "block_yhAQYj"
-      ],
+      "disabled": true,
       "settings": {
         "color_scheme": "",
         "spacing": "medium",
@@ -93,7 +53,6 @@
     }
   },
   "order": [
-    "rd_2_blocks_9PPmf7",
-    "rd_2_blocks_i4qzFF"
+    "rd_2_blocks_aHQPpa"
   ]
 }
