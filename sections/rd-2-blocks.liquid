@@ -197,7 +197,7 @@
           "type": "color",
           "id": "background_color",
           "label": "Background color",
-          "default": "#ffffff"
+          "default": "{% if forloop.first %}#FF0000{% else %}#006400{% endif %}"
         },
         {
           "type": "range",
