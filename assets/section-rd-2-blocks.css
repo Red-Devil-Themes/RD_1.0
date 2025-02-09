@@ -37,6 +37,22 @@
   min-height: 100%;
 }
 
+.rd-2-blocks__block--1 {
+  order: 1;
+}
+
+.rd-2-blocks__block--2 {
+  order: 2;
+}
+
+#links {
+  margin-right: calc(var(--spacing, 2rem) / 2);
+}
+
+#rechts {
+  margin-left: calc(var(--spacing, 2rem) / 2);
+}
+
 .rd-2-blocks__content {
   position: relative;
   border-radius: var(--border-radius);

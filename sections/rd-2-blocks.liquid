@@ -108,7 +108,7 @@
   <div class="page-width">
     <div class="rd-2-blocks__wrapper">
       {%- for block in section.blocks -%}
-        <div class="rd-2-blocks__block" {{ block.shopify_attributes }}>
+        <div class="rd-2-blocks__block rd-2-blocks__block--{{ forloop.index }}" id="{% if forloop.first %}links{% else %}rechts{% endif %}" {{ block.shopify_attributes }}>
           <div class="rd-2-blocks__content" style="background-color: {{ block.settings.background_color }}">
             {%- if block.settings.background_image != blank -%}
               <img
